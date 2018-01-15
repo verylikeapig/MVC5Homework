@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Day1Homework.BL;
 
 namespace Day1Homework.Controllers
 {
@@ -10,7 +11,10 @@ namespace Day1Homework.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var dataProvider = new Day1HomeworkDataProvider();
+            var data = dataProvider.GetData();
+
+            return View(data);
         }
 
         public ActionResult About()
@@ -22,11 +26,22 @@ namespace Day1Homework.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Title = "Contact - from controller";
+            ViewBag.Message = "Your contact page. - from controller";
 
             return View();
         }
 
+        [ChildActionOnly]
+        public ActionResult MoneyDetail()
+        {
+            ViewBag.Title = "我的記帳本";
+            ViewBag.Message = "收入與支出 - Child Action";
 
+            var dataProvider = new Day1HomeworkDataProvider();
+            var data = dataProvider.GetData();
+
+            return View(data);
+        }
     }
 }
