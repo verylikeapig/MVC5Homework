@@ -1,6 +1,8 @@
 ﻿
-<h2>Partial View</h2>
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
 
+<br />
 
 <div class="well">
     <form class="form-horizontal">
@@ -40,28 +42,5 @@
     </form>
 </div>
 
-<div class="row">
-    <div class="col-md-12">
-        <table class="table table-bordered table-hover">
-            <tr>
-                <th>#</th>
-                <th>類別</th>
-                <th>日期</th>
-                <th>金額</th>
-            </tr>
-            @{
-                int i = 1;
-                foreach (var item in Model)
-                {
-                    <tr>
-                        <td> @(i++) </td>
-                        <td> @item.DataCategory </td>
-                        <td> @item.DataDate.ToString("yyyy-MM-dd") </td>
-                        <td> @item.AmountOfMoney.ToString("###,###") </td>
-                    </tr>
-                }
-            }
-        </table>
-    </div>
-</div>
+@Html.Action("MoneyDetail")
 

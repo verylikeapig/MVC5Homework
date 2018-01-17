@@ -11,23 +11,16 @@ namespace Day1Homework.Controllers
     {
         public ActionResult Index()
         {
-            var dataProvider = new Day1HomeworkDataProvider();
+            var dataProvider = new AccountingService();
             var data = dataProvider.GetData();
 
             return View(data);
         }
 
-        public ActionResult About()
+        public ActionResult MyAccountBook()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Title = "Contact - from controller";
-            ViewBag.Message = "Your contact page. - from controller";
+            ViewBag.Title = "我的記帳本";
+            ViewBag.Message = "收入與支出 - Child Action";
 
             return View();
         }
@@ -35,10 +28,8 @@ namespace Day1Homework.Controllers
         [ChildActionOnly]
         public ActionResult MoneyDetail()
         {
-            ViewBag.Title = "我的記帳本";
-            ViewBag.Message = "收入與支出 - Child Action";
 
-            var dataProvider = new Day1HomeworkDataProvider();
+            var dataProvider = new AccountingService();
             var data = dataProvider.GetData();
 
             return View(data);

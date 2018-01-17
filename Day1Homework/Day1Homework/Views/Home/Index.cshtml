@@ -4,149 +4,24 @@
 
 <div class="jumbotron">
     <h1>ASP.NET MVC 實戰訓練營 第八梯</h1>
-    <p class="lead">
-        
-    </p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    
 </div>
 
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
         <h2>Day 1</h2>
         <p style="font-size: large;">
-            1.必須使用 Layout
-            2.下方列表部分建議分開，不要寫在同一頁 並且要有假資料100筆（禁止寫死在 HTML）
-            3.上方輸入的部分可以只是切版的結果不用實現功能。
-            4.前方數字是流水號，不是DB的值
-            5.本次作業禁止使用任何形式的 Database
+            <ol>
+                <li>必須使用 Layout</li>
+                <li>下方列表部分建議分開，不要寫在同一頁 並且要有假資料100筆（禁止寫死在 HTML）</li>
+                <li>上方輸入的部分可以只是切版的結果不用實現功能。</li>
+                <li>前方數字是流水號，不是DB的值</li>
+                <li>本次作業禁止使用任何形式的 Database</li>
+            </ol> 
         </p>
         <p style="font-size: large;">
-            Partial View 寫在 Index.cshtml
-            <br />
-            Child Action 寫在 About.cshtml
+            Child Action 寫在 MyAccountBook.cshtml (我的記帳本)
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-6">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        
     </div>
 </div>
-
-@Html.Partial("_test")
-
-@*-------------------------------------
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>我的記帳本</title>
-        <link href="http://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
-    </head>
-    <body>
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a href="/" class="navbar-brand">我的記帳本</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="#">首頁</a>
-                        <li><a href="#">關於</a>
-                        <li><a href="#">連絡方式</a>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="container body-content">
-
-            <div class="well">
-                <form class="form-horizontal">
-                    <div class="form-group">
-                        <label for="category" class="col-sm-2 control-label">類別</label>
-                        <div class="col-sm-10">
-                            <select id="category" class="form-control">
-                                <option value="" selected>請選擇</option>
-                                <option>支出</option>
-                                <option>收入</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="money" class="col-sm-2 control-label">金額</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="money" placeholder="金額">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="date" class="col-sm-2 control-label">日期</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="date" placeholder="日期">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="description" class="col-sm-2 control-label">備註</label>
-                        <div class="col-sm-10">
-                            <textarea class="form-control" id="description">
-                    </textarea>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-8 col-sm-4">
-                            <button type="submit" class="btn btn-default">送出</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <table class="table table-bordered table-hover">
-                        <tr>
-                            <th>#</th>
-                            <th>類別</th>
-                            <th>日期</th>
-                            <th>金額</th>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>支出</td>
-                            <td>2016-01-01</td>
-                            <td>300</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>支出</td>
-                            <td>2016-01-02</td>
-                            <td>1,600</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>支出</td>
-                            <td>2016-01-03</td>
-                            <td>8,00</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <hr />
-            <footer>
-                <p>&copy; 2017 - <a href="#">SkillTree</a></p>
-            </footer>
-        </div>
-        <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.1.min.js"></script>
-        <script src="http://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"></script>
-    </body>
-    </html>
-    ---------------------------*@
