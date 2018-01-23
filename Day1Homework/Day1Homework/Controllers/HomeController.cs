@@ -30,7 +30,9 @@ namespace Day1Homework.Controllers
         {
 
             var dataProvider = new AccountingService();
-            var data = dataProvider.GetData();
+
+            //var data = dataProvider.GetData();
+            var data = dataProvider.GetDataFromEF();
 
             return View(data);
         }

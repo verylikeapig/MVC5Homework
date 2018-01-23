@@ -4,8 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3c41a524a854463d9ac89187a7e7429e" Name="Diagram1">
-        <EntityTypeShape EntityType="SkillTreeHomeworkModel.AccountBook" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="b4f150d39b284c70bf611f62bb342362" Name="Diagram1">
+        <EntityTypeShape EntityType="Day2HomeworkDBEntity.AccountBook" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

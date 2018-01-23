@@ -153,22 +153,22 @@
     <Compile Include="BL\AccountingService.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Domain\AccountBook.cs">
-      <DependentUpon>SkillTreeHomeworkModel.tt</DependentUpon>
+      <DependentUpon>HomeworkDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Domain\SkillTreeHomeworkModel.Context.cs">
+    <Compile Include="Domain\HomeworkDBEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SkillTreeHomeworkModel.Context.tt</DependentUpon>
+      <DependentUpon>HomeworkDBEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Domain\SkillTreeHomeworkModel.cs">
+    <Compile Include="Domain\HomeworkDBEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SkillTreeHomeworkModel.tt</DependentUpon>
+      <DependentUpon>HomeworkDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Domain\SkillTreeHomeworkModel.Designer.cs">
+    <Compile Include="Domain\HomeworkDBEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SkillTreeHomeworkModel.edmx</DependentUpon>
+      <DependentUpon>HomeworkDBEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -183,15 +183,15 @@
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Domain\SkillTreeHomeworkModel.Context.tt">
+    <Content Include="Domain\HomeworkDBEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SkillTreeHomeworkModel.Context.cs</LastGenOutput>
-      <DependentUpon>SkillTreeHomeworkModel.edmx</DependentUpon>
+      <DependentUpon>HomeworkDBEntities.edmx</DependentUpon>
+      <LastGenOutput>HomeworkDBEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Domain\SkillTreeHomeworkModel.tt">
+    <Content Include="Domain\HomeworkDBEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SkillTreeHomeworkModel.edmx</DependentUpon>
-      <LastGenOutput>SkillTreeHomeworkModel.cs</LastGenOutput>
+      <DependentUpon>HomeworkDBEntities.edmx</DependentUpon>
+      <LastGenOutput>HomeworkDBEntities.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -202,12 +202,12 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Domain\SkillTreeHomeworkModel.edmx">
+    <EntityDeploy Include="Domain\HomeworkDBEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SkillTreeHomeworkModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>HomeworkDBEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Domain\SkillTreeHomeworkModel.edmx.diagram">
-      <DependentUpon>SkillTreeHomeworkModel.edmx</DependentUpon>
+    <Content Include="Domain\HomeworkDBEntities.edmx.diagram">
+      <DependentUpon>HomeworkDBEntities.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
