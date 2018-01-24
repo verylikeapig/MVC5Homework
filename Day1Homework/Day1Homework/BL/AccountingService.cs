@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using ViewModel = Day1Homework.Models;
-using Domain = Day1Homework.Domain;
+using Day1Homework.Models;
+using Day1Homework.DAL;
 
-namespace Day1Homework.BL
+namespace Day1Homework.BL   // Business Logic
 {
     public class AccountingService
     {
-        public List<ViewModel::AccountBook> GetData()
+        public List<AccountBookBO> GetData()
         {
-            List<ViewModel::AccountBook> list = new List<ViewModel::AccountBook>();
+            List<AccountBookBO> list = new List<AccountBookBO>();
 
             Random random = new Random(9);
 
             for (int i = 0; i < 100; i++)
             {
-                ViewModel::AccountBook day1 = new ViewModel::AccountBook
+                AccountBookBO day1 = new AccountBookBO
                 {
                     Category = (random.Next() % 2 == 0) ? "支出" : "收入",
                     RecordDate = DateTime.Now.AddDays(random.Next(-100, 100)),
@@ -30,24 +30,14 @@ namespace Day1Homework.BL
             return list;
         }
 
-        public List<ViewModel::AccountBook> GetDataFromEF()
+        public List<AccountBookBO> GetDataFromEF()
         {
-            Domain::SkillTreeHomeworkEntities homeworkEntities = new Domain.SkillTreeHomeworkEntities();
+            var dal = new AccountBookDAL();
 
-            List<ViewModel::AccountBook> list = new List<ViewModel::AccountBook>();
-
-            list = (
-                    from x in homeworkEntities.AccountBook
-                    select new ViewModel::AccountBook
-                    {
-                        Amount = x.Amounttt,
-                        //Category = x.Categoryyy.ToString(),
-                        Category = (x.Categoryyy==1) ? "支出" : "收入",
-                        RecordDate = x.Dateee
-                    }
-                    ).ToList();
-
-            return list;
+            //若是沒有實做 GenericRepository 就要寫客製化的select
+            //List<AccountBookBO> list = dal.GetAllAccountBook();
+            
+            return dal.GetAccountBook();
         }
     }
 }

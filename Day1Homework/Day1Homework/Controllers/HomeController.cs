@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Day1Homework.BL;
 
-namespace Day1Homework.Controllers
+namespace Day1Homework.Controllers  // 調度資源和組裝ViewModel
 {
     public class HomeController : Controller
     {
