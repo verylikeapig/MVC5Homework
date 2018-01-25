@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Day1Homework.BL;
+using Day1Homework.ViewModels.Home;
 
 namespace Day1Homework.Controllers  // 調度資源和組裝ViewModel
 {
@@ -17,12 +18,12 @@ namespace Day1Homework.Controllers  // 調度資源和組裝ViewModel
             return View(data);
         }
 
-        public ActionResult MyAccountBook()
+        public ActionResult MyAccountBook(MoneyDetailViewModel viewModel)
         {
             ViewBag.Title = "我的記帳本";
             ViewBag.Message = "收入與支出 - Child Action";
 
-            return View();
+            return View(viewModel);
         }
 
         [ChildActionOnly]
