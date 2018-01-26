@@ -18,10 +18,24 @@ namespace Day1Homework.Controllers  // 調度資源和組裝ViewModel
             return View(data);
         }
 
-        public ActionResult MyAccountBook(MoneyDetailViewModel viewModel)
+        [HttpGet]
+        public ActionResult MyAccountBook()
         {
             ViewBag.Title = "我的記帳本";
             ViewBag.Message = "收入與支出 - Child Action";
+
+            return View(new MoneyDetailViewModel());
+        }
+
+        [HttpPost]
+        public ActionResult MyAccountBook(MoneyDetailViewModel viewModel)
+        {
+            ViewBag.Title = "我的記帳本 - Post";
+            ViewBag.Message = "收入與支出 - Child Action";
+
+            // 處理(CUD) viewModel 的東西
+
+            ViewBag.Result = "OK!!";
 
             return View(viewModel);
         }
