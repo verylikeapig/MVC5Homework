@@ -176,6 +176,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\DatetimeAnnotationHelper.cs" />
     <Compile Include="Models\AccountBookBO.cs" />
     <Compile Include="ViewModels\Home\MoneyDetailViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

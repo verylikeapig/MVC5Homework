@@ -13,10 +13,12 @@ namespace Day1Homework.ViewModels.Home
 
         [Required]
         [Display(Name = "金額")]
-        [Range(0, 2147483647, ErrorMessage = "數值區間 0 ~ 2,147,483,647")]
-        public decimal Money { get; set; }
+        [Range(0, Int32.MaxValue, ErrorMessage = "數值區間 {1} ~ {2}")]
+        public int Money { get; set; }
 
         [Display(Name = "日期")]
+        [DataType(DataType.Date)]
+        [DatetimeAnnotationHelper]
         public DateTime Date { get; set; }
 
         [Display(Name = "備註")]
