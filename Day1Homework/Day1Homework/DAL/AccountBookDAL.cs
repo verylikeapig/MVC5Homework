@@ -30,5 +30,20 @@ namespace Day1Homework.DAL  // Data Access Layer 資料中心抽象層 Datacente
                     ).ToList();
             return list;
         }
+
+        public List<Categories> GetCategories()
+        {
+            List<Categories> list = new List<Categories>();
+            list = (
+                    from x in GetAll()
+                    select new Categories
+                    {
+                        CategoryId = x.Categoryyy,
+                        Category = (x.Categoryyy == 1) ? "支出" : "收入"
+                    }
+                    ).Distinct().ToList();
+
+            return list;
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 //BO = business object  可以很多service一起共用，或用來兩兩互相傳遞型態(BL, DAL, views, controller)。
@@ -14,5 +15,12 @@ namespace Day1Homework.Models
         public DateTime RecordDate { get; set; }
 
         public decimal Amount { get; set; }
+    }
+
+    public class Categories
+    {
+        public int CategoryId { get; set; }
+
+        public string Category { get; set; }
     }
 }

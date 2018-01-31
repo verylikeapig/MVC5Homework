@@ -39,5 +39,12 @@ namespace Day1Homework.BL   // Business Logic
             
             return dal.GetAccountBook();
         }
+
+        public List<Categories> GetCategories()
+        {
+            var dal = new AccountBookDAL();
+
+            return dal.GetCategories();
+        }
     }
 }

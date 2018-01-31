@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using Day1Homework.Models;
 
 namespace Day1Homework.ViewModels.Home
 {
@@ -11,9 +12,11 @@ namespace Day1Homework.ViewModels.Home
         [Display(Name = "類別")]
         public string Category { get; set; }
 
+        public IEnumerable<Categories> Categories { get; set; }
+
         [Required]
         [Display(Name = "金額")]
-        [RegularExpression("^[0-9]*[1-9][0-9]*$", ErrorMessage = "只能輸入正整數")]    
+        [RegularExpression("^[0-9]*[1-9][0-9]*$", ErrorMessage = "只能輸入正整數")]
         [Range(0, Int32.MaxValue, ErrorMessage = "數值區間 {1} ~ {2}")]
         public int Money { get; set; }
 

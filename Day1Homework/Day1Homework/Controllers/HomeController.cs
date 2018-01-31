@@ -12,10 +12,7 @@ namespace Day1Homework.Controllers  // 調度資源和組裝ViewModel
     {
         public ActionResult Index()
         {
-            var dataProvider = new AccountingService();
-            var data = dataProvider.GetData();
-
-            return View(data);
+            return View();
         }
 
         [HttpGet]
@@ -24,7 +21,13 @@ namespace Day1Homework.Controllers  // 調度資源和組裝ViewModel
             ViewBag.Title = "我的記帳本";
             ViewBag.Message = "收入與支出 - Child Action";
 
-            return View(new MoneyDetailViewModel());
+            var categories = new AccountingService().GetCategories();
+            var viewmodel = new MoneyDetailViewModel
+            {
+                Categories = categories
+            };
+
+            return View(viewmodel);
         }
 
         [HttpPost]
