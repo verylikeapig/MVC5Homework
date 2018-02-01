@@ -2,7 +2,7 @@
 @{ Html.EnableClientValidation(); }
 <h2>@ViewBag.Title</h2>
 <h3>@ViewBag.Message</h3>
- @ViewBag.Result
+ @TempData["Result"]
 <br />
 @{ 
     Dictionary<string, object> Dictionary = new Dictionary<string, object>() {
@@ -24,7 +24,8 @@
                     <option>收入</option>
                 </select>*@
 
-                @Html.DropDownListFor(m => m.Categories, new SelectList(Model.Categories, "CategoryId", "Category"), "請選擇", new { @class = "form-control" })
+                @*@Html.DropDownListFor(m => m.Categories, new SelectList(Model.Categories, "CategoryId", "Category"), "請選擇", new { @class = "form-control" })*@
+                @Html.DropDownListFor(m => m.SelectedCategoryId, Model.Categories, "請選擇", new { @class = "form-control" })
 
             </div>
         </div>

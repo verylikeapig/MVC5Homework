@@ -24,7 +24,8 @@ namespace Day1Homework.Controllers  // 調度資源和組裝ViewModel
             var categories = new AccountingService().GetCategories();
             var viewmodel = new MoneyDetailViewModel
             {
-                Categories = categories
+                Categories = new SelectList(categories, "CategoryId", "Category"),
+                SelectedCategoryId = -1
             };
 
             return View(viewmodel);
@@ -38,9 +39,13 @@ namespace Day1Homework.Controllers  // 調度資源和組裝ViewModel
 
             // 處理(CUD) viewModel 的東西
 
-            ViewBag.Result = "OK!!";
+            var NewRecord = new AccountingService();
+            NewRecord.CreateNewRecord(viewModel.SelectedCategoryId, viewModel.Money, viewModel.Date, viewModel.Description);
 
-            return View(viewModel);
+            TempData["Result"] = "OK!!get it :　" + viewModel.Money.ToString();
+
+            //return View(viewModel);
+            return RedirectToAction("MyAccountBook");
         }
 
         [ChildActionOnly]

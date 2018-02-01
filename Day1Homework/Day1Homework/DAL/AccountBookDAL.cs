@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Day1Homework.DAL  // Data Access Layer 資料中心抽象層 Datacenter Abstraction Layer (DAL)
+namespace Day1Homework.DAL  // Data Access Layer 資料中心抽象層 Datacenter Abstraction Layer (DAL)  可以實作 ADO.NET 的方法。
 {
     public class AccountBookDAL : GenericRepository<AccountBook>
     {

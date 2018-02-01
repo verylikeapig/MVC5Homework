@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using Day1Homework.Models;
+using System.Web.Mvc;
 
 namespace Day1Homework.ViewModels.Home
 {
@@ -12,7 +13,9 @@ namespace Day1Homework.ViewModels.Home
         [Display(Name = "類別")]
         public string Category { get; set; }
 
-        public IEnumerable<Categories> Categories { get; set; }
+        //public IEnumerable<Categories> Categories { get; set; }
+        public SelectList Categories { get; set; }
+        public int SelectedCategoryId { get; set; }
 
         [Required]
         [Display(Name = "金額")]

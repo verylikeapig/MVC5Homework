@@ -46,5 +46,18 @@ namespace Day1Homework.BL   // Business Logic
 
             return dal.GetCategories();
         }
+
+        public void CreateNewRecord(int category, int amount, DateTime date, string remark)
+        {
+            var dal = new AccountBookDAL();
+            Domain.AccountBook accountBook = new Domain.AccountBook
+            {
+                Categoryyy = category,
+                Amounttt = amount,
+                Dateee = date,
+                Remarkkk = remark
+            };
+            dal.Create(accountBook);
+        }
     }
 }
