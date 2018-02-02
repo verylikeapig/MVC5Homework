@@ -42,10 +42,13 @@ namespace Day1Homework.Controllers  // 調度資源和組裝ViewModel
             var NewRecord = new AccountingService();
             NewRecord.CreateNewRecord(viewModel.SelectedCategoryId, viewModel.Money, viewModel.Date, viewModel.Description);
 
-            TempData["Result"] = "OK!!get it :　" + viewModel.Money.ToString();
+            viewModel.PageInformation = "OK!!get it :　" + viewModel.Money.ToString();
 
-            //return View(viewModel);
-            return RedirectToAction("MyAccountBook");
+            var categories = new AccountingService().GetCategories();
+            viewModel.Categories = new SelectList(categories, "CategoryId", "Category");
+            
+            return View(viewModel);
+            //return RedirectToAction("MyAccountBook");
         }
 
         [ChildActionOnly]

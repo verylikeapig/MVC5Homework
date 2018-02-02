@@ -52,6 +52,7 @@ namespace Day1Homework.BL   // Business Logic
             var dal = new AccountBookDAL();
             Domain.AccountBook accountBook = new Domain.AccountBook
             {
+                Id = Guid.NewGuid(),
                 Categoryyy = category,
                 Amounttt = amount,
                 Dateee = date,

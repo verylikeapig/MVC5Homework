@@ -3,16 +3,6 @@
     Layout = null;
 }
 
-<style>
-    .payment 
-    {
-        color: red;
-    }
-    .income
-    {
-        color: blue;
-    }
-</style>
 
 <div class="row">
     <div class="col-md-12">
@@ -30,11 +20,7 @@
                     <tr>
                         <td> @(i++) </td>
                         <td> 
-                        @{
-                            string css = (item.Category == "支出" ? "payment" : "income");
-
-                            <span class="@css"> @item.Category </span>
-                        }                        
+                            @ColumnColor.CategoryFontColor(item.Category)
                         </td>                        
                         <td> @item.RecordDate.ToString("yyyy-MM-dd") </td>
                         <td> @item.Amount.ToString("###,###") </td>
