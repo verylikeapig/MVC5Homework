@@ -242,6 +242,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\MoneyDetail.cshtml" />
     <Content Include="Views\Home\MyAccountBook.cshtml" />
+    <Content Include="Views\Home\MyAccountBookByAjax.cshtml" />
+    <Content Include="Views\Home\MoneyDetailPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

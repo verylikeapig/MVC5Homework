@@ -62,5 +62,30 @@ namespace Day1Homework.Controllers  // 調度資源和組裝ViewModel
 
             return View(data);
         }
+
+        public ActionResult MyAccountBookByAjax()
+        {
+            ViewBag.Title = "我的記帳本 - By Ajax";
+            ViewBag.Message = "收入與支出 - Partial View";
+
+            var categories = new AccountingService().GetCategories();
+            var viewmodel = new MoneyDetailViewModel
+            {
+                Categories = new SelectList(categories, "CategoryId", "Category"),
+                SelectedCategoryId = -1
+            };
+
+            return View(viewmodel);
+        }
+
+        [HttpPost]
+        public ActionResult MoneyDetailPartialView()
+        {
+            var dataProvider = new AccountingService();
+            
+            var data = dataProvider.GetDataFromEF();
+
+            return View(data);
+        }
     }
 }
