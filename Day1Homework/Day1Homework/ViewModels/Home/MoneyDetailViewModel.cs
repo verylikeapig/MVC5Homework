@@ -32,5 +32,7 @@ namespace Day1Homework.ViewModels.Home
         public string Description { get; set; }
 
         public string PageInformation { get; set; }
+
+        public IEnumerable<AccountBookBO> MoneyDetailForPartialView { get; set;  }
     }
 }

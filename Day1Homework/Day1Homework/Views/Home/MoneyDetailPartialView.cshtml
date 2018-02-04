@@ -1,9 +1,10 @@
-﻿@model IEnumerable<Day1Homework.Models.AccountBookBO>
+﻿@*@model IEnumerable<Day1Homework.Models.AccountBookBO>*@
+@model Day1Homework.ViewModels.Home.MoneyDetailViewModel
 @{
     Layout = null;
 }
 
-
+@Model.PageInformation
 <div class="row">
     <div class="col-md-12">
         <table class="table table-bordered table-hover">
@@ -14,11 +15,11 @@
                 <th>金額</th>
             </tr>
             @{
-                int i = 1;
-                foreach (var item in Model)
+                int i = Model.MoneyDetailForPartialView.Count();
+                foreach (var item in Model.MoneyDetailForPartialView)
                 {
                     <tr>
-                        <td> @(i++) </td>
+                        <td> @(i--) </td>
                         <td>
                             @ColumnColor.CategoryFontColor(item.Category)
                         </td>

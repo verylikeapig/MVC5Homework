@@ -40,6 +40,16 @@ namespace Day1Homework.BL   // Business Logic
             return dal.GetAccountBook();
         }
 
+        public List<AccountBookBO> GetLimitedDataFromEF()
+        {
+            var dal = new AccountBookDAL();
+
+            //若是沒有實做 GenericRepository 就要寫客製化的select
+            //List<AccountBookBO> list = dal.GetAllAccountBook();
+
+            return dal.GetAccountBook(33);
+        }
+
         public List<Categories> GetCategories()
         {
             var dal = new AccountBookDAL();
