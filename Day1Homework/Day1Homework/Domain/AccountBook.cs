@@ -17,7 +17,8 @@ namespace Day1Homework.Domain
         public System.Guid Id { get; set; }
         public int Categoryyy { get; set; }
         public int Amounttt { get; set; }
-        public System.DateTime Dateee { get; set; }
+        public DateTime Dateee { get; set; }
         public string Remarkkk { get; set; }
+        public DateTime Updatetime { get; set; }
     }
 }

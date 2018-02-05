@@ -13,6 +13,7 @@
                 <th>類別</th>
                 <th>日期</th>
                 <th>金額</th>
+                <th>更新日期</th>
             </tr>
             @{
                 int i = Model.MoneyDetailForPartialView.Count();
@@ -25,6 +26,7 @@
                         </td>
                         <td> @item.RecordDate.ToString("yyyy-MM-dd") </td>
                         <td> @item.Amount.ToString("###,###") </td>
+                        <td> @item.Updatetime </td>
                     </tr>
                 }
             }

@@ -16,6 +16,8 @@ namespace Day1Homework.Models
         public DateTime RecordDate { get; set; }
 
         public decimal Amount { get; set; }
+
+        public DateTime Updatetime { get; set; }
     }
 
     public class Categories

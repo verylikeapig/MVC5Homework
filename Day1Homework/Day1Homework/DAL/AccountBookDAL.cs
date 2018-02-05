@@ -24,7 +24,8 @@ namespace Day1Homework.DAL  // Data Access Layer 資料中心抽象層 Datacente
                     {
                         Amount = x.Amounttt,
                         Category = (x.Categoryyy == 1) ? "支出" : "收入",
-                        RecordDate = x.Dateee
+                        RecordDate = x.Dateee,
+                        Updatetime = x.Updatetime
                     }
                     ).ToList();
             return list;
@@ -39,9 +40,10 @@ namespace Day1Homework.DAL  // Data Access Layer 資料中心抽象層 Datacente
                     {
                         Amount = x.Amounttt,
                         Category = (x.Categoryyy == 1) ? "支出" : "收入",
-                        RecordDate = x.Dateee
+                        RecordDate = x.Dateee, 
+                        Updatetime = x.Updatetime
                     }
-                    ).OrderByDescending(y => y.RecordDate).Take(TopNumber).ToList();
+                    ).OrderByDescending(y => y.Updatetime).Take(TopNumber).ToList();
             return list;
         }
 
@@ -55,7 +57,7 @@ namespace Day1Homework.DAL  // Data Access Layer 資料中心抽象層 Datacente
                         CategoryId = x.Categoryyy,
                         Category = (x.Categoryyy == 1) ? "支出" : "收入"
                     }
-                    ).Distinct().ToList();
+                    ).Distinct().OrderBy(y => y.CategoryId).ToList();
 
             return list;
         }

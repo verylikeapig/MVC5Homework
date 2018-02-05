@@ -44,9 +44,6 @@ namespace Day1Homework.BL   // Business Logic
         {
             var dal = new AccountBookDAL();
 
-            //若是沒有實做 GenericRepository 就要寫客製化的select
-            //List<AccountBookBO> list = dal.GetAllAccountBook();
-
             return dal.GetAccountBook(33);
         }
 
@@ -65,8 +62,9 @@ namespace Day1Homework.BL   // Business Logic
                 Id = Guid.NewGuid(),
                 Categoryyy = category,
                 Amounttt = amount,
-                Dateee = date,
-                Remarkkk = remark
+                Dateee = date.Date,
+                Remarkkk = remark,
+                Updatetime = DateTime.Now
             };
             dal.Create(accountBook);
         }

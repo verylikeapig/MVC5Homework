@@ -86,11 +86,21 @@ namespace Day1Homework.Controllers  // 調度資源和組裝ViewModel
         public ActionResult MoneyDetailPartialView(MoneyDetailViewModel viewModel)
         {
             var NewRecord = new AccountingService();
-            NewRecord.CreateNewRecord(viewModel.SelectedCategoryId, viewModel.Money, viewModel.Date.Date, viewModel.Description);
+            NewRecord.CreateNewRecord(viewModel.SelectedCategoryId, viewModel.Money, viewModel.Date, viewModel.Description);
 
-            viewModel.PageInformation = "OK!!get it :　" + viewModel.Money.ToString();
+            var categories = NewRecord.GetCategories();
 
-            return View();
+            var moneydetail = NewRecord.GetLimitedDataFromEF();
+
+            var viewmodel = new MoneyDetailViewModel
+            {
+                Categories = new SelectList(categories, "CategoryId", "Category"),
+                SelectedCategoryId = -1,
+                MoneyDetailForPartialView = moneydetail,
+                PageInformation = "OK!!get it :　" + viewModel.Money.ToString()
+            };
+
+            return View(viewmodel);
         }
     }
 }

@@ -33,6 +33,6 @@ namespace Day1Homework.ViewModels.Home
 
         public string PageInformation { get; set; }
 
-        public IEnumerable<AccountBookBO> MoneyDetailForPartialView { get; set;  }
+        public IEnumerable<AccountBookBO> MoneyDetailForPartialView { get; set; }
     }
 }
