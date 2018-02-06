@@ -38,15 +38,22 @@ namespace Day1Homework.Controllers  // 調度資源和組裝ViewModel
             ViewBag.Message = "收入與支出 - Child Action";
 
             // 處理(CUD) viewModel 的東西
-
-            var NewRecord = new AccountingService();
-            NewRecord.CreateNewRecord(viewModel.SelectedCategoryId, viewModel.Money, viewModel.Date, viewModel.Description);
-
-            viewModel.PageInformation = "OK!!get it :　" + viewModel.Money.ToString();
+            
+            if (ModelState.IsValid)
+            {
+                var NewRecord = new AccountingService();
+                NewRecord.CreateNewRecord(viewModel.SelectedCategoryId, viewModel.Money, viewModel.Date, viewModel.Description);
+                viewModel.PageInformation = "OK!! Get it :　" + viewModel.Money.ToString();
+            }
+            else
+            {
+                viewModel.PageInformation = "Not OK!!";
+            }
 
             var categories = new AccountingService().GetCategories();
             viewModel.Categories = new SelectList(categories, "CategoryId", "Category");
-            
+            viewModel.SelectedCategoryId = -1;
+
             return View(viewModel);
             //return RedirectToAction("MyAccountBook");
         }
@@ -86,21 +93,22 @@ namespace Day1Homework.Controllers  // 調度資源和組裝ViewModel
         public ActionResult MoneyDetailPartialView(MoneyDetailViewModel viewModel)
         {
             var NewRecord = new AccountingService();
-            NewRecord.CreateNewRecord(viewModel.SelectedCategoryId, viewModel.Money, viewModel.Date, viewModel.Description);
+            if (ModelState.IsValid)
+            {                
+                NewRecord.CreateNewRecord(viewModel.SelectedCategoryId, viewModel.Money, viewModel.Date, viewModel.Description);
+            }
 
             var categories = NewRecord.GetCategories();
-
             var moneydetail = NewRecord.GetLimitedDataFromEF();
-
-            var viewmodel = new MoneyDetailViewModel
+            var NewviewModel = new MoneyDetailViewModel
             {
                 Categories = new SelectList(categories, "CategoryId", "Category"),
                 SelectedCategoryId = -1,
                 MoneyDetailForPartialView = moneydetail,
-                PageInformation = "OK!!get it :　" + viewModel.Money.ToString()
+                PageInformation = (ModelState.IsValid == true) ? "OK!!get it :　" + viewModel.Money.ToString() : "Not OK!! It's not working!!"
             };
 
-            return View(viewmodel);
+            return View(NewviewModel);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace System.ComponentModel.DataAnnotations
 {
     public sealed class DatetimeAnnotationHelper : ValidationAttribute, IClientValidatable
     {
-        private const string DefaultErrorMessage = "選擇的日期 {0} 不得大於等於今天 {1}";
+        private const string DefaultErrorMessage = "選擇的日期 {0} 不得大於等於今天 {1}，並且也要大於 2000-01-01";
 
         public DatetimeAnnotationHelper() 
             : base(DefaultErrorMessage)
@@ -29,7 +29,7 @@ namespace System.ComponentModel.DataAnnotations
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             DateTime dt = (DateTime)value;
-            if (dt.Date <= DateTime.Now.Date)
+            if (dt <= DateTime.Now & dt >= Convert.ToDateTime("2000-01-01 00:00:00"))
             {
                 return ValidationResult.Success;
             }

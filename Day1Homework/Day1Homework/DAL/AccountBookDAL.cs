@@ -27,7 +27,7 @@ namespace Day1Homework.DAL  // Data Access Layer 資料中心抽象層 Datacente
                         RecordDate = x.Dateee,
                         Updatetime = x.Updatetime
                     }
-                    ).ToList();
+                    ).OrderByDescending(y => y.Updatetime).ToList();
             return list;
         }
 

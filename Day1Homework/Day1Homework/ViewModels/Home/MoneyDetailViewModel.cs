@@ -25,6 +25,8 @@ namespace Day1Homework.ViewModels.Home
         [Display(Name = "日期")]
         [DataType(DataType.Date)]
         [DatetimeAnnotationHelper]
+        //[Range(typeof(DateTime),"2000-01-01","9999-12-31", ErrorMessage = "{0}只能在 {1} ~ {2} 之間")]  
+        //無法實作，明明是20111/11/11，但還是會跑出錯誤訊息？！
         public DateTime Date { get; set; }
 
         [Display(Name = "備註")]
