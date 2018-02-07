@@ -47,12 +47,12 @@ namespace Day1Homework.DAL  // Data Access Layer 資料中心抽象層 Datacente
             return list;
         }
 
-        public List<Categories> GetCategories()
+        public List<Models.Categories> GetCategories()
         {
-            List<Categories> list = new List<Categories>();
+            List<Models.Categories> list = new List<Models.Categories>();
             list = (
                     from x in GetAll()
-                    select new Categories
+                    select new Models.Categories
                     {
                         CategoryId = x.Categoryyy,
                         Category = (x.Categoryyy == 1) ? "支出" : "收入"

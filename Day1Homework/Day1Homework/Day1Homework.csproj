@@ -61,6 +61,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -150,13 +151,29 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="BL\AccountingService.cs" />
+    <Compile Include="Controllers\FeedController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="CustomResults\RssResult.cs" />
     <Compile Include="DAL\AccountBookDAL.cs" />
     <Compile Include="DAL\GenericRepository.cs" />
     <Compile Include="DAL\IRepository.cs" />
     <Compile Include="Domain\AccountBook.cs">
       <DependentUpon>HomeworkDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Categories.cs">
+      <DependentUpon>NorthwindEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\CustomerDemographics.cs">
+      <DependentUpon>NorthwindEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Customers.cs">
+      <DependentUpon>NorthwindEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Employees.cs">
+      <DependentUpon>NorthwindEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Domain\HomeworkDBEntities.Context.cs">
       <AutoGen>True</AutoGen>
@@ -173,6 +190,42 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HomeworkDBEntities.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Domain\NorthwindEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NorthwindEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\NorthwindEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NorthwindEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\NorthwindEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NorthwindEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Orders.cs">
+      <DependentUpon>NorthwindEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Order_Details.cs">
+      <DependentUpon>NorthwindEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Products.cs">
+      <DependentUpon>NorthwindEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Region.cs">
+      <DependentUpon>NorthwindEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Shippers.cs">
+      <DependentUpon>NorthwindEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Suppliers.cs">
+      <DependentUpon>NorthwindEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Territories.cs">
+      <DependentUpon>NorthwindEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -182,6 +235,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Northwind.mdf" />
+    <Content Include="App_Data\Northwind_log.ldf">
+      <DependentUpon>Northwind.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\SkillTreeHomework.mdf" />
     <Content Include="App_Data\SkillTreeHomework_log.ldf">
       <DependentUpon>SkillTreeHomework.mdf</DependentUpon>
@@ -197,6 +254,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>HomeworkDBEntities.edmx</DependentUpon>
       <LastGenOutput>HomeworkDBEntities.cs</LastGenOutput>
+    </Content>
+    <Content Include="Domain\NorthwindEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NorthwindEntities.edmx</DependentUpon>
+      <LastGenOutput>NorthwindEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Domain\NorthwindEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NorthwindEntities.edmx</DependentUpon>
+      <LastGenOutput>NorthwindEntities.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -215,6 +282,15 @@
       <DependentUpon>HomeworkDBEntities.edmx</DependentUpon>
     </Content>
     <Content Include="App_Code\ColumnColor.cshtml" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Home\History.cshtml" />
+    <EntityDeploy Include="Domain\NorthwindEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>NorthwindEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Domain\NorthwindEntities.edmx.diagram">
+      <DependentUpon>NorthwindEntities.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -244,8 +320,12 @@
     <Content Include="Views\Home\MyAccountBook.cshtml" />
     <Content Include="Views\Home\MyAccountBookByAjax.cshtml" />
     <Content Include="Views\Home\MoneyDetailPartialView.cshtml" />
+    <Content Include="Views\Feed\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>

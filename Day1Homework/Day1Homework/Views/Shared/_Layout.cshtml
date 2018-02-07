@@ -17,15 +17,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("MVC5HomeWork", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("MVC5HomeWork", "Index", new { Controller = "Home", area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("首頁", "Index", "Home")</li>
+                    <li>@Html.ActionLink("首頁", "Index", new { Controller = "Home", area = "" })</li>
                     
-                    <li>@Html.ActionLink("我的記帳本", "MyAccountBook", "Home")</li>
+                    <li>@Html.ActionLink("我的記帳本", "MyAccountBook", new { Controller = "Home", area = "" })</li>
 
-                    <li>@Html.ActionLink("我的記帳本 By Ajax", "MyAccountBookByAjax", "Home")</li>
+                    @*<li>@Html.ActionLink("我的記帳本 By Ajax", "MyAccountBookByAjax", "Home")</li>*@
+                    <li>@Html.ActionLink("我的記帳本 By Ajax", "MyAccountBookByAjax", new { Controller = "Home", area = "" })</li>
+
+                    <li>@Html.ActionLink("歷史資料", "History", new { Controller = "Home", area = "Admin" })</li>
                 </ul>
             </div>
         </div>
