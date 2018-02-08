@@ -28,8 +28,10 @@
                     @*<li>@Html.ActionLink("我的記帳本 By Ajax", "MyAccountBookByAjax", "Home")</li>*@
                     <li>@Html.ActionLink("我的記帳本 By Ajax", "MyAccountBookByAjax", new { Controller = "Home", area = "" })</li>
 
-                    <li>@Html.ActionLink("歷史資料", "History", new { Controller = "Home", area = "Admin" })</li>
+                    <li>@Html.ActionLink("歷史資料", "Index", new { Controller = "AccountBooks", area = "Admin" })</li>
+                    @*<li>@Html.ActionLink("歷史資料", "History", new { Controller = "Home", area = "Admin" })</li>*@
                 </ul>
+                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>

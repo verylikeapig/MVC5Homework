@@ -152,6 +152,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AccountBooksController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="BL\AccountingService.cs" />
     <Compile Include="Controllers\FeedController.cs" />
@@ -226,11 +227,13 @@
     <Compile Include="Domain\Territories.cs">
       <DependentUpon>NorthwindEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Fliters\AuthorizePlusAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\DatetimeAnnotationHelper.cs" />
     <Compile Include="Models\AccountBookBO.cs" />
+    <Compile Include="ViewModels\Home\LoginViewModel.cs" />
     <Compile Include="ViewModels\Home\MoneyDetailViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -291,6 +294,11 @@
     <Content Include="Domain\NorthwindEntities.edmx.diagram">
       <DependentUpon>NorthwindEntities.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\AccountBooks\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AccountBooks\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\AccountBooks\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\AccountBooks\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AccountBooks\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -321,6 +329,9 @@
     <Content Include="Views\Home\MyAccountBookByAjax.cshtml" />
     <Content Include="Views\Home\MoneyDetailPartialView.cshtml" />
     <Content Include="Views\Feed\Index.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Logout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />

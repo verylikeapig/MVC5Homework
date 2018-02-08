@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Day1Homework.BL;
 using Day1Homework.ViewModels.Home;
+using System.Web.Security;
 
 namespace Day1Homework.Controllers  // 調度資源和組裝ViewModel
 {
@@ -109,6 +110,37 @@ namespace Day1Homework.Controllers  // 調度資源和組裝ViewModel
             };
 
             return View(NewviewModel);
+        }
+
+        public ActionResult Login(string returnUrl)
+        {
+            ViewBag.ReturnUrl = returnUrl;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(LoginViewModel model, string returnUrl)
+        {
+            if (model.Account == "aaa" & model.Password == "bbb")
+            {
+                //FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, model.Account, DateTime.Now, DateTime.Now.AddMinutes(5),
+                //    true, "userData", FormsAuthentication.FormsCookiePath);
+                //string encTicket = FormsAuthentication.Encrypt(ticket);
+                //var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, encTicket);
+                //cookie.HttpOnly = true;
+
+                //Response.Cookies.Add(cookie);
+
+                Session["auth"] = true;
+            }
+
+            return RedirectToAction("index");
+        }
+
+        public ActionResult Logout()
+        {
+            Session["auth"] = false;
+            return RedirectToAction("index");
         }
     }
 }

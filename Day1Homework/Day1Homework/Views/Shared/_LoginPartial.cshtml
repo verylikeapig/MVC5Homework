@@ -1,0 +1,26 @@
+﻿
+@if ((bool)Session["auth"] == true)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                
+                @Html.ActionLink("Hello !", "Index", new { Controller = "Home", area = "" })
+            </li>
+            <li>
+                @Html.ActionLink("登出", "Logout", new { Controller = "Home", area = "" }, htmlAttributes: new { id = "loginLink" })
+            </li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        
+        <li>@Html.ActionLink("登入", "Login", new { Controller = "Home", area = "" }, htmlAttributes: new { id = "loginLink" })</li>
+        
+    </ul>
+}
+
