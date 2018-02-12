@@ -14,15 +14,16 @@
                 <th>金額</th>
                 <th>更新日期</th>
             </tr>
-            @{
+            @{  //item.Category == "支出" ? true : false // @item.Category
                 int i = 1;
                 foreach (var item in Model)
                 {
+                    
                     <tr>
                         <td> @(i++) </td>
-                        <td> 
-                            @ColumnColor.CategoryFontColor(item.Category)
-                        </td>                        
+                        <td>
+                            <span class="@ColumnColor.CategoryFontColor(item.Category)"> @item.Category </span>
+                        </td>                
                         <td> @item.RecordDate.ToString("yyyy-MM-dd") </td>
                         <td> @item.Amount.ToString("###,###") </td>
                         <td> @item.Updatetime </td>

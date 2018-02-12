@@ -23,7 +23,16 @@ textarea {
     max-width: 280px;
 }
 
-/*  */
+/* For Child Action */
+.paymentCA {
+    color: purple;
+}
+
+.incomeCA {
+    color: green;
+}
+
+/* For Partial View */
 .payment {
     color: red;
 }

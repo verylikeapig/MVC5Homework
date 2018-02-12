@@ -1,9 +1,12 @@
 ﻿
 
+@*
+    若支出回傳是紅色字，收入則是藍色字。
+*@
 
 @helper CategoryFontColor(string category)
 {
     string css = (category == "支出" ? "payment" : "income");
 
-    <span class="@css"> @category </span>
+    @css;
 }
