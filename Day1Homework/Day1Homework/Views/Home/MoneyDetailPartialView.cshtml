@@ -5,6 +5,8 @@
 }
 
 @Model.PageInformation
+
+@Html.ValidationMessageFor(m => m.Description, null, new { @class = "text-danger" })
 <div class="row">
     <div class="col-md-12">
         <table class="table table-bordered table-hover">

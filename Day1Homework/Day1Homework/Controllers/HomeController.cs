@@ -40,7 +40,7 @@ namespace Day1Homework.Controllers  // 調度資源和組裝ViewModel
 
             // 處理(CUD) viewModel 的東西
 
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && LoginCheck())
             {
                 var NewRecord = new AccountingService();
                 NewRecord.CreateNewRecord(viewModel.SelectedCategoryId, viewModel.Money, viewModel.Date, viewModel.Description);
@@ -57,6 +57,18 @@ namespace Day1Homework.Controllers  // 調度資源和組裝ViewModel
 
             return View(viewModel);
             //return RedirectToAction("MyAccountBook");
+        }
+
+        private bool LoginCheck()
+        {
+            Boolean LoginTicket = (Boolean?)Session["auth"] ?? false;
+
+            if (!LoginTicket)
+            {
+                ModelState.AddModelError("Description", "請登入才能新增資料!!");
+            }
+
+            return LoginTicket;
         }
 
         [ChildActionOnly]
@@ -94,7 +106,7 @@ namespace Day1Homework.Controllers  // 調度資源和組裝ViewModel
         public ActionResult MoneyDetailPartialView(MoneyDetailViewModel viewModel)
         {
             var NewRecord = new AccountingService();
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && LoginCheck())
             {
                 NewRecord.CreateNewRecord(viewModel.SelectedCategoryId, viewModel.Money, viewModel.Date, viewModel.Description);
             }

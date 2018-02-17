@@ -40,3 +40,16 @@ textarea {
 .income {
     color: blue;
 }
+
+/* Limit Admin/AccountBooks/Index.cshtml td's width and height */
+.AccountBookTable {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+}
+.AccountBookTableTd {
+    height: 50px;
+    border: solid 1px #fab;
+    width: 600px;
+    word-wrap: break-word;
+}

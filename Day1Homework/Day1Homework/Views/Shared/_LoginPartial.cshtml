@@ -1,12 +1,15 @@
-﻿
-@if (Session["auth"] != null && (bool)Session["auth"] == true)
+﻿@{
+    Boolean LoginTicket = (Boolean?)Session["auth"] ?? false;
+}
+@*@if (Session["auth"] != null && (bool)Session["auth"] == true)*@
+@if (LoginTicket)
 {
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    using (Html.BeginForm("LogOff", "Account", new { Controller = "Account", Area = "" }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
-        
+
         <ul class="nav navbar-nav navbar-right">
             <li>
-                
+
                 @Html.ActionLink("Hello !", "Index", new { Controller = "Home", area = "" })
             </li>
             <li>
@@ -18,9 +21,9 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        
+
         <li>@Html.ActionLink("登入", "Login", new { Controller = "Home", area = "" }, htmlAttributes: new { id = "loginLink" })</li>
-        
+
     </ul>
 }
 

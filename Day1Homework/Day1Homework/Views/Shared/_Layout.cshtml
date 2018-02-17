@@ -1,7 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Boolean LoginTicket = (Boolean?)Session["auth"] ?? false;
+}
+
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - 我的 ASP.NET 應用程式</title>
@@ -22,14 +26,19 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("首頁", "Index", new { Controller = "Home", area = "" })</li>
-                    
+
                     <li>@Html.ActionLink("我的記帳本", "MyAccountBook", new { Controller = "Home", area = "" })</li>
 
-                    @*<li>@Html.ActionLink("我的記帳本 By Ajax", "MyAccountBookByAjax", "Home")</li>*@
                     <li>@Html.ActionLink("我的記帳本 By Ajax", "MyAccountBookByAjax", new { Controller = "Home", area = "" })</li>
 
-                    <li>@Html.ActionLink("歷史資料", "Index", new { Controller = "AccountBooks", area = "Admin" })</li>
-                    @*<li>@Html.ActionLink("歷史資料", "History", new { Controller = "Home", area = "Admin" })</li>*@
+                    <li>@Html.ActionLink("Admin Index", "Index", new { Controller = "Home", area = "Admin" })</li>
+
+                    @if (LoginTicket)
+                    {
+                        <li>@Html.ActionLink("歷史資料", "History", new { Controller = "Home", area = "Admin" })</li>
+                        <li>@Html.ActionLink("記帳本(CRUD)", "Index", new { Controller = "AccountBooks", area = "Admin" })</li>
+                    }
+
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

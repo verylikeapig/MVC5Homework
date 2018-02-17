@@ -10,7 +10,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table AccountBookTable">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Categoryyy)
@@ -21,13 +21,13 @@
         <th>
             @Html.DisplayNameFor(model => model.Dateee)
         </th>
-        <th>
+        <th class="AccountBookTableTd">
             @Html.DisplayNameFor(model => model.Remarkkk)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Updatetime)
         </th>
-        <th></th>
+        <th>Action</th>
     </tr>
 
 @foreach (var item in Model) {
@@ -41,7 +41,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Dateee)
         </td>
-        <td>
+        <td class="AccountBookTableTd">
             @Html.DisplayFor(modelItem => item.Remarkkk)
         </td>
         <td>
