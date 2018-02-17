@@ -15,7 +15,14 @@ namespace Day1Homework
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
+                url: "skilltree",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "Day1Homework.Controllers" }
+            );
+
+            routes.MapRoute(
+                name: "Root_default",
+                url: "skilltree/{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] { "Day1Homework.Controllers" }
             );
