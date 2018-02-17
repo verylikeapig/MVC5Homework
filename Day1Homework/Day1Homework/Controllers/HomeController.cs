@@ -39,12 +39,12 @@ namespace Day1Homework.Controllers  // 調度資源和組裝ViewModel
             ViewBag.Message = "收入與支出 - Child Action";
 
             // 處理(CUD) viewModel 的東西
-            
+
             if (ModelState.IsValid)
             {
                 var NewRecord = new AccountingService();
                 NewRecord.CreateNewRecord(viewModel.SelectedCategoryId, viewModel.Money, viewModel.Date, viewModel.Description);
-                viewModel.PageInformation = "OK!! Get it :　" + viewModel.Money.ToString();
+                viewModel.PageInformation = "OK!! Get it :　" + viewModel.Money;
             }
             else
             {
@@ -95,7 +95,7 @@ namespace Day1Homework.Controllers  // 調度資源和組裝ViewModel
         {
             var NewRecord = new AccountingService();
             if (ModelState.IsValid)
-            {                
+            {
                 NewRecord.CreateNewRecord(viewModel.SelectedCategoryId, viewModel.Money, viewModel.Date, viewModel.Description);
             }
 
