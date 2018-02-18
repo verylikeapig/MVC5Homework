@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Day1Homework.BL;
 using Day1Homework.ViewModels.Home;
 using System.Web.Security;
+using MvcPaging;
 
 namespace Day1Homework.Controllers  // 調度資源和組裝ViewModel
 {
@@ -17,17 +18,21 @@ namespace Day1Homework.Controllers  // 調度資源和組裝ViewModel
         }
 
         [HttpGet]
-        public ActionResult MyAccountBook()
+        public ActionResult MyAccountBook(int? page, int? yyyy, int? mm)
         {
             ViewBag.Title = "我的記帳本";
             ViewBag.Message = "收入與支出 - Child Action";
-
+            int currentPageIndex = page.HasValue ? page.Value - 1 : 0;
             var categories = new AccountingService().GetCategories();
             var viewmodel = new MoneyDetailViewModel
             {
                 Categories = new SelectList(categories, "CategoryId", "Category"),
-                SelectedCategoryId = -1
-            };
+                SelectedCategoryId = -1,
+                MoneyDetailForPaging = new AccountingService().GetDataFromEF().ToPagedList(currentPageIndex,5)
+        };
+
+            ViewBag.yyyy = yyyy.HasValue ? yyyy.Value : 0;
+            ViewBag.mm = mm.HasValue ? mm.Value : 0;
 
             return View(viewmodel);
         }
@@ -72,13 +77,18 @@ namespace Day1Homework.Controllers  // 調度資源和組裝ViewModel
         }
 
         [ChildActionOnly]
-        public ActionResult MoneyDetail()
+        public ActionResult MoneyDetail(int? page, int? yyyy, int? mm)
         {
+            int currentPageIndex = page.HasValue ? page.Value - 1 : 0;
 
             var dataProvider = new AccountingService();
 
             //var data = dataProvider.GetData();
-            var data = dataProvider.GetDataFromEF();
+            //var data = dataProvider.GetDataFromEF();
+            int year = yyyy.HasValue ? yyyy.Value : 0;
+            int month = mm.HasValue ? mm.Value : 0;
+
+            var data = dataProvider.GetDataFromEFwithPaging(currentPageIndex, year, month);
 
             return View(data);
         }

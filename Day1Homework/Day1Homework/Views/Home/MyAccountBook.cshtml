@@ -1,4 +1,6 @@
-﻿@model Day1Homework.ViewModels.Home.MoneyDetailViewModel
+﻿@using MvcPaging;
+@model Day1Homework.ViewModels.Home.MoneyDetailViewModel
+
 @{ Html.EnableClientValidation(); }
 <h2>@ViewBag.Title</h2>
 <h3>@ViewBag.Message</h3>
@@ -67,3 +69,7 @@
 
 @Html.Action("MoneyDetail")
 
+<div class="col-md-12">
+    @Html.Pager(Model.MoneyDetailForPaging.PageSize, 
+    Model.MoneyDetailForPaging.PageNumber, Model.MoneyDetailForPaging.TotalItemCount)
+</div>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using Day1Homework.Models;
 using Day1Homework.DAL;
+using MvcPaging;
 
 namespace Day1Homework.BL   // Business Logic
 {
@@ -45,6 +46,13 @@ namespace Day1Homework.BL   // Business Logic
             var dal = new AccountBookDAL();
 
             return dal.GetAccountBook(33);
+        }
+
+        public IPagedList<AccountBookBO> GetDataFromEFwithPaging(int currentPageIndex, int yyyy, int mm)
+        {
+            var dal = new AccountBookDAL();
+            
+            return dal.GetAccountBookWithPagedList(currentPageIndex, 5, yyyy, mm);
         }
 
         public List<Categories> GetCategories()

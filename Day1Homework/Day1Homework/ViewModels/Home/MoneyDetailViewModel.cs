@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using Day1Homework.Models;
 using System.Web.Mvc;
+using MvcPaging;
 
 namespace Day1Homework.ViewModels.Home
 {
@@ -36,5 +37,7 @@ namespace Day1Homework.ViewModels.Home
         public string PageInformation { get; set; }
 
         public IEnumerable<AccountBookBO> MoneyDetailForPartialView { get; set; }
-    }
+
+        public IPagedList<AccountBookBO> MoneyDetailForPaging { get; set; }
+}
 }
